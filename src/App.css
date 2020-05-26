@@ -3,14 +3,64 @@
 }
 .RowInput
 {
+  text-align: left;
+  /* width: auto; */
+  /* border:2px solid red; */
   margin:10px;
 }
-
-.RowInput div
+.RowInput input
 {
-  margin:5px;
+
+	height: 50px;  /* Chrome & Safari */
+	outline: 1px inset #fff;
+  outline-offset: -1px;
+  
+  height: 30px;
+  font-size: 15px;
+  width: 20%;
+}
+
+
+.RowInput select
+{
+
+  padding: 10px 16px; /* Firefox */
+
+	height: 50px;  /* Chrome & Safari */
+	-webkit-border-radius: 0;
+	border: 0;
+	outline: 1px inset #fff;
+  outline-offset: -1px;
+  
+  height: 30px;
+  font-size: 15px;
+  width: 20%;
+}
+
+
+.RowInput .RowInputDes
+{
+
+  border:2px solid blue;
+  width: 20%;
+
   display: inline-block;
 }
+
+
+.RowInput .RowContainer .selectContainer
+{
+  display: inline-block;
+  border:2px solid magenta;
+  width: 50%;
+}
+.selectContainer select
+{
+  font-size: 16px;
+  width:100px;
+
+}
+
 
 .hide
 {
