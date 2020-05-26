@@ -27,7 +27,6 @@
   padding: 10px 16px; /* Firefox */
 
 	height: 50px;  /* Chrome & Safari */
-	-webkit-border-radius: 0;
 	border: 0;
 	outline: 1px inset #fff;
   outline-offset: -1px;
