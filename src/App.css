@@ -1,67 +1,40 @@
-.App {
+.title
+{
+  text-align: center ;
+
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.ChoiceSelectorIndicator{
+  display: inline-block;
+  font-size: 20px;
+  width: 50px;
+  /* text-align: center; */
+  margin-left: 10px;
+}
+
+.ChoiceSelectorRow
+{
+  
   text-align: center;
-}
-.RowInput
-{
-  text-align: left;
-  /* width: auto; */
-  /* border:2px solid red; */
-  margin:10px;
-}
-.RowInput input
-{
-
-	height: 50px;  /* Chrome & Safari */
-	outline: 1px inset #fff;
-  outline-offset: -1px;
-  
-  height: 30px;
-  font-size: 15px;
-  width: 20%;
-}
-
-
-.RowInput select
-{
-
-  padding: 10px 16px; /* Firefox */
-
-	height: 50px;  /* Chrome & Safari */
-	border: 0;
-	outline: 1px inset #fff;
-  outline-offset: -1px;
-  
-  height: 30px;
-  font-size: 15px;
-  width: 20%;
-}
-
-
-.RowInput .RowInputDes
-{
-
-  border:2px solid blue;
-  width: 20%;
-
-  display: inline-block;
-}
-
-
-.RowInput .RowContainer .selectContainer
-{
-  display: inline-block;
-  border:2px solid magenta;
-  width: 50%;
-}
-.selectContainer select
-{
+  height:40px;
+  width:13%;
   font-size: 16px;
-  width:100px;
-
+  margin:5px;
+  padding:10px;
+  margin-left:10px;
 }
-
-
-.hide
+.Input{
+  /* border:2px solid red; */
+  height:15px;
+  width:11.2%;
+}
+.ChoiceSelectorRow option
 {
-  display: none;
+  padding:5px;
 }
