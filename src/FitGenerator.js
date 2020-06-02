@@ -1,66 +1,9 @@
 import './App.css'
 import React, { Component } from 'react'
 import Closet from './Closet'
+import ChoiceSelectorContainer from './components/FitGenerator/ChoiceSelectorContainer'
+import ClassSelector from './components/FitGenerator/ClassSelector'
 
-
-function ChoiceSelectorRow(props){
-
-    if(props.list.length > 0){
-        return(
-            <div>
-            {/* <div className = "ChoiceSelectorIndicator">{props.name}:</div> */}
-
-                <select className = "ChoiceSelectorRow" defaultValue = {props.name} name = {props.name} onChange = {props.handleOnChange}>
-                <option  disabled value = {props.name}>Select a {props.name}</option>
-                    {props.list.map(item => {
-                            return(<option  key = {item} value = {item}>{item}</option>)
-                    }
-                    )}
-        
-                </select>
-            </div>
-            )
-        }
-        else{
-            return(
-                <div>
-                 {/* <div className = "ChoiceSelectorIndicator">{props.name}:</div> */}
-                    <input className = "ChoiceSelectorRow Input" name = {props.name}type="text" onChange = {props.handleOnChange} placeholder = {props.name}/>
-                </div>
-                )
-            }
-        }
-
-    
-
-    
-function ClassSelector(props){
-    return(
-        <div>
-            {/* <div className = "ChoiceSelectorIndicator">Class:</div> */}
-            <select  className = "ChoiceSelectorRow" defaultValue = "Class" onChange = {props.handleChangeClass}>
-                
-               <option disabled value = "Class">Select a Class</option>
-               <option key = "Top" value = "Top">Top</option>
-               <option key = "Bottom" value = "Bottom">Bottom</option>
-               <option key = "Shoes" value = "Shoes">Shoes</option>
-            </select>
-        </div>
-        )
-    }
-function ChoiceSelectorContainer(props){
-
-    return(
-    <div>
-        {props.atts.map(item => <ChoiceSelectorRow 
-        key = {Object.keys(item)[0]} 
-        name = {Object.keys(item)[0]} 
-        list = {Object.values(item)[0]}
-        handleOnChange = {props.handleOnChange}
-        />)}
-    </div>
-    )
-}
 
 export default class ToDoApp extends Component {
     constructor(props){
@@ -165,9 +108,8 @@ export default class ToDoApp extends Component {
                         />
                         <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
                     </div>
-                    <Closet
-                    name = "Omar"
-                    />
+                    <Closet/>
+                    
                 </div>
             </div>
 

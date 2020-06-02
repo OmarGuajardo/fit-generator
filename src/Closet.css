@@ -1,28 +1,52 @@
+
 .closetContainer
 {
     font-family: "Barlow";
     display: inline-block;
-    /* border:2px solid red; */
+    border:2px solid red;
     height:300px;
     margin-left: 20px;
     width: 70%;
     text-align: center;
 }
-.optionsContainer
+.closetHeader{
+    margin-bottom: 10px;
+}
+.closetContainer .optionsContainer
 {
+    /* display: none; */
     display: inline-flex;
     justify-content: center;
     align-items: center;
     /* border:2px solid blue; */
-    width: 80%;
+    overflow: hidden;
+    width: 100%;
     margin: auto;
-    height: 60%;
+    height: 80%;
+    padding: 0px;
+    transition:0.3s ease;
+}
+.optionsContainer.hidden
+{
+    height:0px;
+    transition: 0.3s ease;
+    /* display: none; */
 }
 
+.classIconSelector.hidden
+{
+    display: none;
+}
 .classIconSelector{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    margin:5px;
+    width:30%;
+    height:90%;
+    /* border:2px solid red; */
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.classIconSelector{
     margin:5px;
     width:30%;
     height:90%;
@@ -49,4 +73,18 @@
     text-align: center;
     display: block;
     width: 90px;    
+}
+
+.closetContainer .closetShowCaseContainer{
+    /* border:2px solid red; */
+    width: 80%;
+    margin: auto;
+    height:70%;
+    overflow: hidden;
+    transition: 0.6s ease ;
+    padding:none;
+}
+.closetContainer .closetShowCaseContainer.hidden{
+    transition: 0.2s ease ;
+    height:0px;
 }
