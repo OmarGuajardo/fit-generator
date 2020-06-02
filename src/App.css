@@ -3,6 +3,19 @@
   text-align: center ;
 
 }
+.choiceSelectorContainer{
+  display: inline-block;
+}
+
+.top-half-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.top-half-container
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -10,20 +23,13 @@ select {
   text-overflow: '';
 }
 
-.ChoiceSelectorIndicator{
-  display: inline-block;
-  font-size: 20px;
-  width: 50px;
-  /* text-align: center; */
-  margin-left: 10px;
-}
 
 .ChoiceSelectorRow
 {
   
   text-align: center;
   height:40px;
-  width:13%;
+  width:90%;
   font-size: 16px;
   margin:5px;
   padding:10px;
@@ -32,9 +38,11 @@ select {
 .Input{
   /* border:2px solid red; */
   height:15px;
-  width:11.2%;
+  width:81.2%;
 }
 .ChoiceSelectorRow option
 {
   padding:5px;
 }
+
+

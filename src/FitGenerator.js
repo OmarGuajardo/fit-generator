@@ -1,5 +1,6 @@
 import './App.css'
 import React, { Component } from 'react'
+import Closet from './Closet'
 
 
 function ChoiceSelectorRow(props){
@@ -153,15 +154,21 @@ export default class ToDoApp extends Component {
         return (
             <div>
                 <h2 className = "title">Fit Generator</h2>
-                <ClassSelector
-                handleChangeClass = {this.handleChangeClass}
-                />
-                <ChoiceSelectorContainer 
-                handleOnChange = {this.handleOnChange}
-                atts = {this.atts[this.state.class]}
-                />
-                <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
-
+                <div className="top-half-container">
+                    <div className = "choiceSelectorContainer">
+                        <ClassSelector
+                        handleChangeClass = {this.handleChangeClass}
+                        />
+                        <ChoiceSelectorContainer 
+                        handleOnChange = {this.handleOnChange}
+                        atts = {this.atts[this.state.class]}
+                        />
+                        <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
+                    </div>
+                    <Closet
+                    name = "Omar"
+                    />
+                </div>
             </div>
 
         )
