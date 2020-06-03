@@ -42,14 +42,19 @@ export default class ToDoApp extends Component {
     handleAddItem()
     {
         const item = this.state.item
-        if(Object.keys(item).length < 3)
+        if(Object.keys(item).length < 3 )
         {
             alert("you are a missing an item")
         }
         else
         {
-            console.log(this.state.item)
+            this.setState(prevState =>{
+                const newAddition = [...prevState.closet[this.state.class],this.state.item]
+                const newCloset = {...prevState.closet,[this.state.class]:newAddition}
+                return({...prevState,closet:newCloset})
+            })
         }
+        console.log(this.state.closet)
     }
     handleChangeClass(e)
     {
@@ -108,7 +113,11 @@ export default class ToDoApp extends Component {
                         />
                         <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
                     </div>
-                    <Closet/>
+                    <button onClick = {()=>console.log(this.state)}></button>
+                    <button onClick = {()=>console.log(this.state.closet)}></button>
+                    <Closet
+                    closet = {this.state.closet}
+                    />
                     
                 </div>
             </div>
