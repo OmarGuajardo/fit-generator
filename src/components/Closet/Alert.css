@@ -1,0 +1,12 @@
+.alertContainer
+{
+    display: inline-block;
+    margin:5px;
+}
+.testBtn
+{ 
+    display: inline-block;
+    text-overflow: clip;
+    overflow: hidden;
+    /* width:100px; */
+}

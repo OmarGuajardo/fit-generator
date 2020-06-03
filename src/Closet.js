@@ -3,6 +3,8 @@ import './Closet.css';
 import shirt from './icons/tshirt.png'
 import shorts from './icons/shorts.png'
 import shoes from './icons/boots.png'
+import AlertDialog from './components/Closet/Alert'
+import Button from '@material-ui/core/Button';
 
 //TODO: REFERENCE AUTHOR OF ICONS 
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
@@ -57,7 +59,27 @@ export default class Closet extends Component {
                 </div>
                 <div 
                 className={this.state.options? "closetShowCaseContainer hidden" : "closetShowCaseContainer"}>
-                   <button onClick = {()=>this.toggleClass()}></button>
+                  <div>
+                    <Button onClick = {()=>this.toggleClass()}>Go Back</Button>
+                   </div>
+                   <AlertDialog
+                   name = "Converse Off White"
+                   />
+                   <AlertDialog
+                   name = "Converse Off White"
+                   />
+                   <AlertDialog
+                   name = "Converse"
+                   />
+                   <AlertDialog
+                   name = "Converse Off White"
+                   />
+                   <AlertDialog
+                   name = "Jordan 1's"
+                   />
+                   <AlertDialog
+                   name = "Converse Off White"
+                   />
                 </div>
             </div>
         )
