@@ -21,7 +21,7 @@ export default function AlertDialog(props) {
   return (
     <div className = "alertContainer">
       <Button className = "testBtn" variant="outlined" color="primary" onClick={handleClickOpen}>
-        {props.name}
+        {props.item.Name}
       </Button>
       <Dialog
         open={open}
@@ -29,12 +29,16 @@ export default function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{props.name}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{props.item.Name}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText>
+        {Object.keys(props.item).map(key =>
+            <p key = {props.item[key]}>{key}:   {props.item[key]}</p>
+            )}
+          {/* <DialogContentText id="alert-dialog-description">
+          {Object.keys(props.item).map(key =>
+            <p key = {props.item[key]}>{key}:   {props.item[key]}</p>
+            )}
+          </DialogContentText> */}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

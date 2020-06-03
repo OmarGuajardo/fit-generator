@@ -29,10 +29,9 @@ export default class ToDoApp extends Component {
                 {Style: ["Khaki","Slacks","Denim","Joggers","Shorts"]}
             ],
             Shoes: [
-                // {Name :[]},
+                {Name :[]},
                 {Color :["Red","Green","Blue","Tan"]},
-                {ShoeBrand:[]},
-                {ShoeName :[]}
+                {ShoeBrand:[]}
             ]
         }
         this.STORAGE_KEY = "KEY"
@@ -54,7 +53,6 @@ export default class ToDoApp extends Component {
                 return({...prevState,closet:newCloset})
             })
         }
-        console.log(this.state.closet)
     }
     handleChangeClass(e)
     {
@@ -113,8 +111,7 @@ export default class ToDoApp extends Component {
                         />
                         <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
                     </div>
-                    <button onClick = {()=>console.log(this.state)}></button>
-                    <button onClick = {()=>console.log(this.state.closet)}></button>
+                    <button onClick = {()=>console.log(this.state.closet)}>Show Closet</button>
                     <Closet
                     closet = {this.state.closet}
                     />

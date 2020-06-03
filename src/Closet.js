@@ -3,8 +3,8 @@ import './Closet.css';
 import shirt from './icons/tshirt.png'
 import shorts from './icons/shorts.png'
 import shoes from './icons/boots.png'
-import AlertDialog from './components/Closet/Alert'
-import Button from '@material-ui/core/Button';
+import ClassCloset from './components/Closet/ClassCloset'
+
 
 //TODO: REFERENCE AUTHOR OF ICONS 
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
@@ -27,14 +27,22 @@ export default class Closet extends Component {
         this.toggleClass = this.toggleClass.bind(this)
         this.state = {
             options : true,
-            title :"CLOSET"
+            title :"CLOSET",
+            specificCloset: "Top"
         }
-        this.article_array = [[shirt,"TOP"],[shorts,"BOTTOM"],[shoes,"SHOES"]]
+        this.article_array = [[shirt,"Top"],[shorts,"Bottom"],[shoes,"Shoes"]]
+
     }
+
     toggleClass(name){
         let newTitle
         if(this.state.title !== "CLOSET"){newTitle = "CLOSET"}
-        else{newTitle = name}
+        else{
+            newTitle = name
+            this.setState(prevState =>{
+                return({...prevState,specificCloset:newTitle})
+            })
+        }
         this.setState(prevState =>{
             return({
                 title:newTitle,
@@ -57,30 +65,15 @@ export default class Closet extends Component {
                 toggleClass = {this.toggleClass}
                 />)}
                 </div>
-                <div 
+                <ClassCloset
+                className={this.state.options? "closetShowCaseContainer hidden" : "closetShowCaseContainer"}
+                toggleClass = {this.toggleClass}
+                specificCloset = {this.props.closet[this.state.specificCloset]}
+                />
+                {/* <div 
                 className={this.state.options? "closetShowCaseContainer hidden" : "closetShowCaseContainer"}>
-                  <div>
-                    <Button onClick = {()=>this.toggleClass()}>Go Back</Button>
-                   </div>
-                   <AlertDialog
-                   name = "Converse Off White"
-                   />
-                   <AlertDialog
-                   name = "Converse Off White"
-                   />
-                   <AlertDialog
-                   name = "Converse"
-                   />
-                   <AlertDialog
-                   name = "Converse Off White"
-                   />
-                   <AlertDialog
-                   name = "Jordan 1's"
-                   />
-                   <AlertDialog
-                   name = "Converse Off White"
-                   />
-                </div>
+                  
+                </div> */}
             </div>
         )
     }
