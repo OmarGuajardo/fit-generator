@@ -44,7 +44,6 @@ export default class FitMatching{
             local_shoe.splice(local_shoe.indexOf(random_shoe),1)
 
         }
-        console.log(generated_outfits)
         return(generated_outfits)
     }
 }

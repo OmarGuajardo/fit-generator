@@ -7,14 +7,14 @@
   display: inline-block;
 }
 
-.top-half-container
+.half-container
 {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+  border:2px solid red;
 }
-.top-half-container
 
 select {
   -webkit-appearance: none;

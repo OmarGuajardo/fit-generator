@@ -1,13 +1,13 @@
 import React from 'react';
-import './Alert.css'
+import './BotHalf.css'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DropDown from './DropDown'
 
-export default function AlertDialog(props) {
+export default function OutfitHandle(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -21,7 +21,7 @@ export default function AlertDialog(props) {
   return (
     <div className = "alertContainer">
       <Button className = "testBtn" variant="outlined" color="primary" onClick={handleClickOpen}>
-        {props.item.Name}
+       OUTFIT # {props.number + 1}
       </Button>
       <Dialog
         open={open}
@@ -29,27 +29,25 @@ export default function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{props.item.Name}</DialogTitle>
-        <DialogContent>
-        {/* {Object.keys(props.item).map(key =>
-            <p key = {props.item[key]}>{key}:   {props.item[key]}</p>
-            )} */}
-          <DialogContentText id="alert-dialog-description">
-          {Object.keys(props.item).map(key =>{
-            return(<li key = {props.item[key]}>{key}:   {props.item[key]}</li>)
-          })}
-          </DialogContentText>
-        </DialogContent>
+        <DialogTitle id="alert-dialog-title">OUTFIT # {props.number + 1}</DialogTitle>
+            <DialogContent>
+               <DropDown 
+               title = "Top"
+               info = {props.info.Top}
+               />
+               <DropDown 
+               title = "Bottom"
+               info = {props.info.Bottom}
+               />
+               <DropDown 
+               title = "Shoes"
+               info = {props.info.Shoe}
+               />
+            </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Close
           </Button>
-          {/* <Button onClick={handleClose} color="primary" autoFocus>
-            Delete
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Edit
-          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

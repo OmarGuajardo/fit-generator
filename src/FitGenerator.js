@@ -4,6 +4,7 @@ import Closet from './Closet'
 import ChoiceSelectorContainer from './components/FitGenerator/ChoiceSelectorContainer'
 import ClassSelector from './components/FitGenerator/ClassSelector'
 import FitMatching from './backend/FitMatching'
+import OutfitHandle from './components/GeneratedOutfits/OutfitHandle'
 
 // let closet = {Top:["asdf"],Bottom:["105"],Shoes:[234]}
 // let newFitMatcher = new FitMatching(closet)
@@ -146,7 +147,6 @@ export default class ToDoApp extends Component {
         this.setState(prevState =>{
             return({...prevState,generated_outfits:newGeneratedOutfits})
         })
-        console.log(this.state.generated_outfits)
 
     }
     handleAddItem()
@@ -175,7 +175,7 @@ export default class ToDoApp extends Component {
             if(newClass === "Top"){
                 const newItem = {
                     Color:prevState.item.Color,
-                    Fit:"Fitted",
+                    Fit:"Tight",
                     Style:"Graphic"
                 }
                 return({...prevState,item:newItem})
@@ -211,7 +211,7 @@ export default class ToDoApp extends Component {
         return (
             <div>
                 <h2 className = "title">Fit Generator</h2>
-                <div className="top-half-container">
+                <div className="half-container">
                     <div className = "choiceSelectorContainer">
                         <ClassSelector
                         handleChangeClass = {this.handleChangeClass}
@@ -224,10 +224,20 @@ export default class ToDoApp extends Component {
                     </div>
                     <button onClick = {()=>console.log(this.state)}>Show Closet</button>
                     <button onClick = {()=>this.handleGenerate()}>Generate Outifts</button>
+                    <button onClick = {()=>console.log(this.state.generated_outfits)}>Show Outifts</button>
                     <Closet
                     closet = {this.state.closet}
                     />
-                    
+                </div>
+                <div className = "bot-half-container">
+                    {this.state.generated_outfits.map(item =>{
+                        return(
+                            <OutfitHandle
+                            info = {item}
+                            number = {this.state.generated_outfits.indexOf(item)}
+                            />
+                        )
+                    })}
                 </div>
             </div>
 
