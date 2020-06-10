@@ -12,7 +12,12 @@ export default function DropDown(props) {
         <div className = "dropdown-container">
             <div onClick = {() => togggleClosed()} className="dropdown-btn">{props.title}</div>
             <div  className={closed ? "dropdown-content closed" : "dropdown-content"}>
-                <div>{props.info.Name}</div>
+            {Object.keys(props.info).map(key =>{
+              return(<div key = {props.info[key]}><strong>{key}: </strong>  {props.info[key]}</div>)
+
+
+                })}
+                {/* <div>{props.info.Name}</div> */}
                 {/* <div>INFO</div> */}
             </div>
         </div>

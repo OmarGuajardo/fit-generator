@@ -6,6 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import AttributeHolder from './AttributeHolder'
 
 export default function AlertDialog(props) {
   const [open, setOpen] = React.useState(false);
@@ -20,10 +21,11 @@ export default function AlertDialog(props) {
 
   return (
     <div className = "alertContainer">
-      <Button className = "testBtn" variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button className = "testBtn" variant="outlined"  onClick={handleClickOpen}>
         {props.item.Name}
       </Button>
       <Dialog
+      
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
@@ -36,12 +38,17 @@ export default function AlertDialog(props) {
             )} */}
           <DialogContentText id="alert-dialog-description">
           {Object.keys(props.item).map(key =>{
-            return(<li key = {props.item[key]}>{key}:   {props.item[key]}</li>)
+            if(key !== "Name")
+            {
+              return(<div className = "attributeHolder" key = {props.item[key]}><strong>{key}: </strong>  {props.item[key]}</div>)
+            }
+            return(null)
+
           })}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose}>
             Close
           </Button>
           {/* <Button onClick={handleClose} color="primary" autoFocus>

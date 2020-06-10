@@ -20,7 +20,7 @@ export default function OutfitHandle(props) {
 
   return (
     <div className = "alertContainer">
-      <Button className = "testBtn" variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button className = "testBtn" variant="outlined"  onClick={handleClickOpen}>
        OUTFIT # {props.number + 1}
       </Button>
       <Dialog
@@ -45,7 +45,7 @@ export default function OutfitHandle(props) {
                />
             </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} >
             Close
           </Button>
         </DialogActions>
