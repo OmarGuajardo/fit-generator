@@ -5,6 +5,8 @@ import ChoiceSelectorContainer from './components/FitGenerator/ChoiceSelectorCon
 import ClassSelector from './components/FitGenerator/ClassSelector'
 import FitMatching from './backend/FitMatching'
 import OutfitHandle from './components/GeneratedOutfits/OutfitHandle'
+import GenerateUI from './components/FitGenerator/GenerateUI'
+
 
 // let closet = {Top:["asdf"],Bottom:["105"],Shoes:[234]}
 // let newFitMatcher = new FitMatching(closet)
@@ -141,9 +143,10 @@ export default class ToDoApp extends Component {
 
     }
 
-    handleGenerate(){
+    handleGenerate(numFits){
+        console.log(numFits)
         let newCloset = new FitMatching(this.state.closet)
-        let newGeneratedOutfits = newCloset.generateCloset(20)
+        let newGeneratedOutfits = newCloset.generateCloset(numFits)
         this.setState(prevState =>{
             return({...prevState,generated_outfits:newGeneratedOutfits})
         })
@@ -210,7 +213,16 @@ export default class ToDoApp extends Component {
     render() {
         return (
             <div>
-                <h2 className = "title">Fit Generator</h2>
+                <div className = "header-container">
+                    <div className="header-title">Fit Generator</div>
+                        <div className="generator-container">
+                            
+                            <GenerateUI 
+                            handleGenerate = {this.handleGenerate}
+                            />
+                        </div>
+                    </div>
+
                 <div className="half-container">
                     <div className = "choiceSelectorContainer">
                         <ClassSelector
@@ -222,9 +234,9 @@ export default class ToDoApp extends Component {
                         />
                         <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
                     </div>
-                    <button onClick = {()=>console.log(this.state)}>Show Closet</button>
+                    {/* <button onClick = {()=>console.log(this.state)}>Show Closet</button>
                     <button onClick = {()=>this.handleGenerate()}>Generate Outifts</button>
-                    <button onClick = {()=>console.log(this.state.generated_outfits)}>Show Outifts</button>
+                    <button onClick = {()=>console.log(this.state.generated_outfits)}>Show Outifts</button> */}
                     <Closet
                     closet = {this.state.closet}
                     />
@@ -239,6 +251,7 @@ export default class ToDoApp extends Component {
                         )
                     })}
                 </div>
+               
             </div>
 
         )
