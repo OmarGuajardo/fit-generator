@@ -18,6 +18,10 @@ export default function AlertDialog(props) {
     setOpen(false);
   };
 
+  function handleDelete(){
+    props.handleDeleteItem(props.clotheClass,props.item.ID)
+  }
+
   return (
     <div className = "alertContainer">
       <Button className = "testBtn" variant="outlined"  onClick={handleClickOpen}>
@@ -34,7 +38,7 @@ export default function AlertDialog(props) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
           {Object.keys(props.item).map(key =>{
-            if(key !== "Name")
+            if(key !== "Name" && key !== "ID")
             {
               return(<div className = "attributeHolder" key = {props.item[key]}><strong>{key}: </strong>  {props.item[key]}</div>)
             }
@@ -47,12 +51,9 @@ export default function AlertDialog(props) {
           <Button onClick={handleClose}>
             Close
           </Button>
-          {/* <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleDelete} color="primary" autoFocus>
             Delete
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Edit
-          </Button> */}
         </DialogActions>
       </Dialog>
     </div>

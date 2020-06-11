@@ -68,7 +68,9 @@ export default class Closet extends Component {
                 <ClassCloset
                 className={this.state.options? "closetShowCaseContainer hidden" : "closetShowCaseContainer"}
                 toggleClass = {this.toggleClass}
+                clotheClass = {this.state.specificCloset}
                 specificCloset = {this.props.closet[this.state.specificCloset]}
+                handleDeleteItem = {this.props.handleDeleteItem}
                 />
                 {/* <div 
                 className={this.state.options? "closetShowCaseContainer hidden" : "closetShowCaseContainer"}>

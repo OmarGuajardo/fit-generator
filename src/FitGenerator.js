@@ -144,9 +144,15 @@ export default class ToDoApp extends Component {
 
     }
 
-    handleDeleteItem(id){
-        //TODO: Delete Item from this.state.closet based on ID
-        //componentDidUpdate should take care of saving it to the localStorage
+    handleDeleteItem(clotheClass, ID){
+        console.log("deleting and item who's id is " , ID)
+        console.log("deleting and item who's class is " , clotheClass)
+        const specificCloset = this.state.closet[clotheClass]
+        const newSpecificCloset = specificCloset.filter(object => object.ID !== ID)
+        this.setState(prevState =>{
+            const newCloset = {...prevState.closet,[clotheClass]:newSpecificCloset}
+            return({...prevState,closet:newCloset})
+        })
     }
 
     handleGenerate(numFits){
@@ -167,10 +173,6 @@ export default class ToDoApp extends Component {
         }
         else
         {
-            // console.log("handling adding item")
-            // const newItem = {...this.state.item,ID:uuid()}
-            // console.log(newItem)
-
             this.setState(prevState =>{
                 const newItem = {...this.state.item,ID:uuid()}
                 const newAddition = [...prevState.closet[this.state.class],newItem]
@@ -270,6 +272,7 @@ export default class ToDoApp extends Component {
                     </div>
                     <Closet
                     closet = {this.state.closet}
+                    handleDeleteItem = {this.handleDeleteItem}
                     />
                 </div>
                 <div className = "bot-half-container">

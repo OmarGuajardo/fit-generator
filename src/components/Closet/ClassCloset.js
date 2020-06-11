@@ -10,8 +10,10 @@ export default function ClassCloset(props) {
       {props.specificCloset.map(item=>{
           return(
               <AlertDialog
+              clotheClass = {props.clotheClass}
               key = {item.Name}
               item = {item}
+              handleDeleteItem = {props.handleDeleteItem}
               />
           )
       })}
