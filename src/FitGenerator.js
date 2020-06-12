@@ -7,6 +7,7 @@ import FitMatching from './backend/FitMatching'
 import OutfitHandle from './components/GeneratedOutfits/OutfitHandle'
 import GenerateUI from './components/FitGenerator/GenerateUI'
 import uuid from 'react-uuid'
+import Button from '@material-ui/core/Button';
 
 export default class ToDoApp extends Component {
 
@@ -19,7 +20,6 @@ export default class ToDoApp extends Component {
         this.STORAGE_KEY = "fitGenerator.closet"
 
         this.state = {
-            testCloset :{},
             class : "Top",
             generated_outfits :[],
             closet : {Top:[],Bottom:[],Shoes:[]},
@@ -187,9 +187,6 @@ export default class ToDoApp extends Component {
             console.log("saving new closet")
             localStorage.setItem(this.STORAGE_KEY,JSON.stringify(this.state.closet))
         }
-        else{
-            console.log("closet has not changed")
-        }
     }
     componentDidMount()
     {
@@ -206,32 +203,9 @@ export default class ToDoApp extends Component {
     }
     handleChangeClass(e)
     {
-
-        const newClass = e.target.value
         this.setState({class:e.target.value})
         this.setState(prevState =>{
-            
-            if(newClass === "Top"){
-                const newItem = {
-                    Color:prevState.item.Color,
-                    Fit:"Tight",
-                    Style:"Graphic"
-                }
-                return({...prevState,item:newItem})
-            }
-            else if(newClass === "Bottom"){
-                const newItem = {
-                    Color:prevState.item.Color,
-                    Fit:"Straight",
-                    Style:"Khaki"
-                }
-                return({...prevState,item:newItem})
-            }
-            else{
-                const previousColor = {Color:prevState.item.Color}
-                return({...prevState,item:previousColor})
-            }
-            
+            return({...prevState,item:{}})            
         })
     }
     handleOnChange(e)
@@ -263,12 +237,15 @@ export default class ToDoApp extends Component {
                     <div className = "choiceSelectorContainer">
                         <ClassSelector
                         handleChangeClass = {this.handleChangeClass}
+                        selectedItem = {this.state.class}
                         />
                         <ChoiceSelectorContainer 
                         handleOnChange = {this.handleOnChange}
                         atts = {this.atts[this.state.class]}
+                        selectedItem = {this.state.item}
                         />
-                        <button  className = "ChoiceSelectorRow" onClick = {()=>{this.handleAddItem()}}>Add Item</button>
+                        <Button  className = "ChoiceSelectorRow Button" onClick = {()=>{this.handleAddItem()}}>Add Item</Button>
+                        
                     </div>
                     <Closet
                     closet = {this.state.closet}
@@ -279,13 +256,15 @@ export default class ToDoApp extends Component {
                     {this.state.generated_outfits.map(item =>{
                         return(
                             <OutfitHandle
+                            key = {uuid()}
                             info = {item}
                             number = {this.state.generated_outfits.indexOf(item)}
                             />
                         )
                     })}
                 </div>
-               
+                <button onClick ={()=>console.log(this.state.item)}>See Item</button>
+                <button onClick ={()=>console.log(this.state)}>See State</button>
             </div>
 
         )

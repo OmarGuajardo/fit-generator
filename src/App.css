@@ -66,5 +66,12 @@ select {
 {
   padding:5px;
 }
+.ChoiceSelectorRow.Button
+{
+  background-color: rgb(168, 168, 168);
+}
 
 
+.input-label{
+  width:170px;
+}

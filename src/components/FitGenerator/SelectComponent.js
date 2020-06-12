@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ClassSelector(props) {
+export default function SelectComponent(props) {
   const classes = useStyles();
-  let data = props.selectedItem
+  let data = props.selectedItem[props.title]
   let choice = ''
   if(data !== undefined){
     choice = data
@@ -26,29 +26,34 @@ export default function ClassSelector(props) {
 
 
   const handleChange = (event) => {
+    // setChoice(event.target.value);
     choice = event.target.value;
-    props.handleChangeClass(event)
+    props.handleOnChange(event)
   };
+
+
 
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Class</InputLabel>
+        <InputLabel id="demo-simple-select-outlined-label">{props.title}</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
           value={choice}
           onChange={handleChange}
           label="choice"
-          name = "Class"
+          name = {props.title}
           className = "input-label"
         >
-          <MenuItem  disabled value="">
-            <em>Select a Class</em>
+          <MenuItem disabled value="">
+            <em>Select a {props.title}</em>
           </MenuItem>
-          <MenuItem key = "Top" value="Top">Top</MenuItem>)
-          <MenuItem key = "Bottom" value="Bottom">Bottom</MenuItem>)
-          <MenuItem key = "Shoes" value="Shoes">Shoes</MenuItem>)
+          {props.list.map(item => {
+                            return(
+                                <MenuItem key = {item} value={item}>{item}</MenuItem>)
+                    }
+                    )}
         </Select>
       </FormControl>
          </div>
