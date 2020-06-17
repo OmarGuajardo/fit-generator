@@ -61,13 +61,20 @@ export default class ToDoApp extends Component {
     }
 
     handleGenerate(numFits){
-        console.log(numFits)
-        let newCloset = new FitMatching(this.state.closet)
-        let newGeneratedOutfits = newCloset.generateCloset(numFits)
-        this.setState(prevState =>{
-            return({...prevState,generated_outfits:newGeneratedOutfits})
-        })
-
+        const localCloset = this.state.closet
+        console.log(localCloset)
+        if(localCloset.Top.length === 0 || localCloset.Bottom.length === 0 || localCloset.Shoes.length === 0){
+            alert("you need to have at least one item per class to generate outfits")
+        }
+        else{
+            let newCloset = new FitMatching(this.state.closet)
+            let newGeneratedOutfits = newCloset.generateCloset(numFits)
+            this.setState(prevState =>{
+                return({...prevState,generated_outfits:newGeneratedOutfits})
+            })
+    
+        }
+        
     }
     handleAddItem()
     {
