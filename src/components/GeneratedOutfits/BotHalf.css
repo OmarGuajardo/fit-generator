@@ -1,3 +1,9 @@
+.bot-half-container{
+    /* border:2px solid red; */
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 20px;
+}
 .bot-half-container .alertContainer {
     display: inline-block;
     margin: 5px;

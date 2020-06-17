@@ -11,7 +11,7 @@ export default function ClassCloset(props) {
           return(
               <AlertDialog
               clotheClass = {props.clotheClass}
-              key = {item.Name}
+              key = {item.ID}
               item = {item}
               handleDeleteItem = {props.handleDeleteItem}
               />

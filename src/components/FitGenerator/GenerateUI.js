@@ -21,6 +21,9 @@ export default function AlertDialog(props) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleCloseManual = () => {
+    setOpen(false);
     props.handleGenerate(numFits)
   };
 
@@ -53,7 +56,7 @@ export default function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCloseManual} color="primary">
             Generate
           </Button>
         </DialogActions>
